@@ -6,21 +6,48 @@ echo -en "\r\n"
 echo "<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head></head><body>"
 echo "<h1>Router Status</h1>"
 echo "<h2>Batman-ADV</h2>"
+echo "<h3>Originators</h3>"
+echo "<pre>"
+batctl o | cat
+echo "</pre>"
+echo "<h3>Global Translation Table</h3>"
 echo "<pre>"
 batctl tg | cat
-batctl tl |cat
+echo "</pre>"
+echo "<h3>Local Translation Table</h3>"
+echo "<pre>"
+batctl tl | cat
+echo "</pre>"
+echo "<h3>Gateway Mode</h3>"
+echo "<pre>"
+batctl gw | cat
+echo "</pre>"
+echo "<h3>Gateways</h3>"
+echo "<pre>"
+batctl gwl | cat
+echo "</pre>"
+echo "<h3>Bridge Loop Avoidance Claim Table</h3>"
+echo "<pre>"
+batctl cl | cat
+echo "</pre>"
+echo "<h3>Mesh Statistics</h3>"
+echo "<pre>"
+batctl s | cat
 echo "</pre>"
 echo "<h2>Netzwerk</h2>"
 echo "<pre>"
 ifconfig | cat
 echo "</pre>"
 echo "<h2>Prozesse</h2>"
-echo "<pre>"         
-ps aux | cat       
-echo "</pre>" 
+echo "<pre>"
+ps aux | cat
+echo "</pre>"
 echo "<h2>UCI</h2>"
-echo "<pre>"         
-uci show | cat       
-echo "</pre>" 
+echo "<pre>"
+uci show | cat
+echo "</pre>"
+echo "<h2>GWIP Table</h2>"
+echo "<pre>"
+p2ptbl show /tmp/p2ptbl/gwip | cat
+echo "</pre>"
 echo "</body></html>"
-
