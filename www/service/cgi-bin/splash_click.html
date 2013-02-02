@@ -42,7 +42,7 @@ Content-Type: text/html\r
 \r
 "
 if have_internet; then
-    sed "s/targeturl/$(echo "$URL" | sed 's#/#\\/#g')/g" iframe.html
+    sed "s/targeturl/$(echo "$URL" | sed 's#/#\\/#g')/g" redirect.html
 else
     cat internet.html
 fi
